@@ -6,7 +6,7 @@ Problem Statement Given by : CVR College Of Engineering,Vastunagar
 
 Here are some APPLICATION SCREENSHOTS,
 
-**Home page**
+### Home page
 The home page is the start page of the application.
 ![homepage](https://github.com/akshit-pulluri/ecommerce_application_springboot/blob/master/Home%20page.png)
 
