@@ -62,6 +62,6 @@ An inventory mail service is added to the project so that when the customer purc
    The main objective of project was to develop an e-commerce web application for a small retail store where the store owner manages products, customers, and orders, while the customers make orders and pay for products. The application was developed with the above-mentioned features .We have designed the project to provide the user with easy navigation, retrieval of data and necessary feedback as much as possible.The application is developed using Spring boot and microservices were added to make the customers comfortable.A good shopping cart with user-friendly logic which is convenient for the customers.
 
 ##### -Developed By:
-  Akshit Pulluri
-  Sastry Devarakonda
-  Chandishwar Anthati
+  Akshit Pulluri,
+  Sastry Devarakonda,
+  Chandishwar Anthati,
