@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:include="/header"></th:block>
+
+
+  <script>
+  function handleSelect(elm)
+  {
+     window.location ="/colorselection?color="+elm.value;
+  }
+</script>
+<style>
+@media (min-width: 1200px) {
+  .container {
+    width: 1560px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+  }
+}
+
+#promo .col-lg-12 {
+  padding: 0 22px 10px 22px;
+}
+
+#promo .carousel {
+  margin-top: -2px;
+  height: 120;
+}
+
+.col-lg-3 {
+  padding: 0 7px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+        </style>
+</head>
+<body>
+	<div class="wrap-box"></div>
+<div class="header_bottom" xmlns:th="http://www.thymeleaf.org">
+	<div class="container">
+		<div class="col-xs-8 header-bottom-left">
+			<div class="col-xs-2 logo">
+				<img src="../static/images/logo.png" height="100" width="100%" th:src="@{images/logo.png}">
+			</div>
+			<div class="col-xs-6 menu">
+			<div class="search">
+				<form th:action="@{/search}" method="get">
+					<input type="search" placeholder="Search for products..." name="keyword"/>
+					<button><i class="fa fa-search red"></i></button>
+				</form>
+			</div>
+				<ul class="megamenu skyblue">
+					<li class="active grid"><i class="fa fa-bars fa-2x"><a href="/home">Catalog</a></i>
+						<div class="megapanel">
+						<div class="row">
+							<div class="col1">
+								<div class="h_nav">
+									<ul>
+										<li th:each="cat : ${categorys}"><a th:href="@{/category(catg=${cat.category})}" th:text="${cat.category}"></a></li>
+									</ul>	
+								</div>							
+							</div>
+						  </div>
+						</div>
+					</li>
+					
+					<li class="active grid" th:switch="${session.role}">
+						<a th:case="'admin'" href="/add" >Add Product</a>
+						<i class="fa fa-shopping-bag fa-2x"><a th:case="'user'"  href="/vieworders">Your Orders</a></i>
+					</li>
+
+					<li class="active grid" th:switch="${session.role}">
+						<a th:case="'admin'" href="/productcategory" >Add Category</a>
+						
+						<button style="font-size:24px" th:case="'user'">
+							<i class="fa fa-shopping-cart">
+								<a href="/viewcart" >View Cart</a>
+							</i>
+						</button>
+					</li>
+				</ul>
+					
+					
+			</div>
+		</div>
+		<div class="col-xs-4 header-bottom-right">
+			<div class="box_1-cart">
+				<div class="box_11">
+					<a href="/logout">Logout</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+	<div class="container">
+	<section id="promo">
+	<div class="row">
+        <div class="col-lg-12">
+          <div id="promo-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <img src="../static/images/ajio.jpg" th:src="@{images/ajio.jpg}">
+              </div>
+              <div class="item">
+                <img src="../static/images/Electronics.jpg" th:src="@{images/Electronics.jpg}">
+              </div>
+              <div class="item">
+                <img src="../static/images/samsung.jpg" th:src="@{images/samsung.jpg}">
+              </div>
+              <div class="item">
+                <img src="../static/images/vaio.jpg" th:src="@{images/vaio.jpg}">
+              </div>
+              <div class="item">
+                <img src="../static/images/pic10.jpg" th:src="@{images/pic10.jpg}">
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#promo-carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#promo-carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      </section>
+		<div class="women_main">
+			<div class="col-md-9 w_content">
+				<div class="women">
+					<ul class="w_nav">
+						<li>Sort :</li>
+						<li><a href="/sorthigh">price: High-Low | </a></li>
+						<li><a href="/sortlow">price: Low-High</a></li>
+						<li>
+							<form action="">
+							<label>Select Color</label> <span>*</span>
+								<select onchange="javascript:handleSelect(this)" required="required">
+									<option value="">Select</option>
+									<option value="red">Red</option>
+									<option value="orange">Orange</option>
+									<option value="yellow">Yellow</option>
+									<option value="green">Green</option>
+									<option value="blue">Blue</option>
+									<option value="purple">Purple</option>
+									<option value="brown">Brown</option>
+									<option value="magenta">Magenta</option>
+									<option value="tan">Tan</option>
+									<option value="cyan">Cyan</option>
+									<option value="olive">Olive</option>
+									<option value="maroon">Maroon</option>
+									<option value="navy">Navy</option>
+									<option value="aquamarine">Aquamarine</option>
+									<option value="turquoise">Turquoise</option>
+									<option value="silver">Silver</option>
+									<option value="lime">Lime</option>
+									<option value="teal">Teal</option>
+									<option value="indigo">Indigo</option>
+									<option value="violet">Violet</option>
+									<option value="pink">Pink</option>
+									<option value="black">Black</option>
+									<option value="white">White</option>
+									<option value="gray">Gray</option>
+								</select>
+							</form>
+						</li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<!-- --------------------------------------product start-------------------------------------- -->
+				<div class="grids_of_4" th:each="product : ${products}">
+					<form action="@{/view(id=${product.id})}" >
+						<div class="grid1_of_4 simpleCart_shelfItem">
+							<div class="content_box">
+								<a th:href="@{/view(id=${product.id})}">
+									<div class="view view-fifth">
+										<img th:src="@{'productimages/'+${product.imageName}}"
+											class="img-responsive" alt="" />
+										<div class="mask1">
+											<div class="info"></div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<h5>
+								<a href="#" th:text="${product.name}"></a>
+							</h5>
+							<div class="size_1">
+								&#8377;<span class="item_price" th:text="${product.price}"></span>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- --------------------------------------product end-------------------------------------- -->
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<th:block th:include="/footer"></th:block>
+	
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
+	
+</body>
+</html>

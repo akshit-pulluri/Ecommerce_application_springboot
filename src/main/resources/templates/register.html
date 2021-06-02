@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:include="/header"></th:block>
+</head>
+<body>
+	<th:block th:include="/menu1"></th:block>
+	<div class="single_top">
+		<div class="container">
+			<div class="register">
+				<form th:action="@{/regaction}" th:object="${user}" method="post">
+					<div class="register-top-grid">
+						<h3>PERSONAL INFORMATION</h3>
+						<div>
+							<span>Name<label>*</label></span> <input type="text"
+								th:field="*{name}" required="required">
+						</div>
+						<div>
+							<span>Mobile<label>*</label></span> <input type="text"
+								th:field="*{mobile}" required="required" pattern="[789][0-9]{9}">
+						</div>
+						<div>
+							<span>Address<label>*</label></span>
+							<textarea th:field="*{address}" rows="5" cols="63" required="required"></textarea>
+						</div>
+						<div class="clearfix"></div>
+						<a class="news-letter" href="#"> <label class="checkbox"><input
+								type="checkbox" name="checkbox" checked="checked"><i>
+							</i>Sign Up for Newsletter</label>
+						</a>
+					</div>
+					<div class="register-bottom-grid">
+						<h3>LOGIN INFORMATION</h3>
+						<div>
+							<span>Email<label>*</label></span> <input type="text"
+								th:field="*{username}" required="required" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$">
+						</div>
+						<div>
+							<span>Password<label>*</label></span> <input type="password"
+								th:field="*{password}" required="required" min="6">
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="register-but">
+						<input type="submit" value="Create account">
+						<div class="clearfix"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="/footer"></th:block>
+</body>
+</html>

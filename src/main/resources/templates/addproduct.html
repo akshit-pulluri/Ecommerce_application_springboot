@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:include="/header"></th:block>
+</head>
+<body>
+	<th:block th:include="/menu2"></th:block>
+	<div class="single_top">
+		<div class="container">
+			<div class="pages">
+				<div class="comments-area">
+					<h3>Add New Product</h3>
+					<form th:action="@{/save}" th:object="${product}" method="post" enctype="multipart/form-data">
+						<p>
+							<label>Name</label> <span>*</span> <input type="text" th:field="*{name}">
+						</p>
+						<p>
+							<label>Price(&#8377;)</label> <span>*</span> <input type="text" th:field="*{price}">
+						</p>
+						<p>
+							<label>Description</label> <span>*</span>
+							<textarea th:field="*{description}"></textarea>
+						</p>
+						<p>
+							<label>Category</label> <span>*</span>
+							<select th:field="*{category}" required="required" >
+								<option value="">select category</option>
+    							<option th:each="cat : ${categorys}" th:value="${cat.category}" th:text="${cat.category}"></option>
+							</select>
+						</p>
+						<p>
+							<label>Color</label> <span>*</span>
+							<select th:field="*{color}" required="required" >
+								<option value="">select color</option>
+								<option value="red">Red</option>
+								<option value="orange">Orange</option>
+								<option value="yellow">Yellow</option>
+								<option value="green">Green</option>
+								<option value="blue">Blue</option>
+								<option value="purple">Purple</option>
+								<option value="brown">Brown</option>
+								<option value="magenta">Magenta</option>
+								<option value="tan">Tan</option>
+								<option value="cyan">Cyan</option>
+								<option value="olive">Olive</option>
+								<option value="maroon">Maroon</option>
+								<option value="navy">Navy</option>
+								<option value="aquamarine">Aquamarine</option>
+								<option value="turquoise">Turquoise</option>
+								<option value="silver">Silver</option>
+								<option value="lime">Lime</option>
+								<option value="teal">Teal</option>
+								<option value="indigo">Indigo</option>
+								<option value="violet">Violet</option>
+								<option value="pink">Pink</option>
+								<option value="black">Black</option>
+								<option value="white">White</option>
+								<option value="gray">Gray</option>
+							</select>
+						</p>
+						<p>
+							<label>Image</label> <span>*</span>
+							<input th:field="*{image}" type="file"/>
+						</p>
+						<p>
+							<label>Quantity</label> <span>*</span> <input type="text" th:field="*{count}">
+						</p>
+						<p>
+							<input type="submit" value="Add Product">
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="/footer"></th:block>
+</body>
+</html>

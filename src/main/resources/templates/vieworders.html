@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:include="/header"></th:block>
+<body>
+	<th:block th:include="/menu2"></th:block>
+	<div class="container">
+		<div class="check">
+			<div class="col-md-9 cart-items">
+				<h1>View Orders</h1>
+				<div class="cart-header" th:each="order : ${orders}">
+					<div class="cart-sec simpleCart_shelfItem">
+						<div class="cart-item cyc">
+							<img th:src="@{'productimages/'+${order.value.imageName}}" class="img-responsive" alt="" />
+						</div>
+						<div class="cart-item-info" >
+							<h3>
+								<a href="#" th:text="@{${order.value.name}}"></a>
+							</h3>
+							<p th:text="@{${order.value.description}}"><br>
+							<p th:text="@{'Price: '+&#8377;+${order.value.price}}">
+							<div class="delivery">
+								<p>Delivery Charges :&#8377;20.00</p>
+								<span><i class="fa fa-truck"></i>Delivered in 2-3 bussiness days</span>
+								<div class="clearfix"></div>
+								<ol class="progtrckr" data-progtrckr-steps="5">
+						    <li class="progtrckr-done">Order Processing</li><!--
+						 --><li class="progtrckr-done">Pre-Production</li><!--
+						 --><li class="progtrckr-done">In Production</li><!--
+						 --><li class="progtrckr-todo">Shipped</li><!--
+						 --><li class="progtrckr-todo">Delivered</li>
+						</ol>
+							<br><br><button><a th:href="@{/cancel(id=${order.key})}">Cancel Order</a></button>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="/footer"></th:block>
+	
+</body>
+</html>

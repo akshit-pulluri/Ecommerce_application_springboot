@@ -1,0 +1,58 @@
+<div class="wrap-box"></div>
+<div class="header_bottom" xmlns:th="http://www.thymeleaf.org">
+	<div class="container">
+		<div class="col-xs-8 header-bottom-left">
+			<div class="col-xs-2 logo">
+				<img src="../static/images/logo.png" height="100" width="100%" th:src="@{images/logo.png}">
+			</div>
+			<div class="col-xs-6 menu">
+			<div class="search">
+				<form th:action="@{/search}" method="get">
+					<input type="search" placeholder="Search for products..." name="keyword"/>
+					<button><i class="fa fa-search red"></i></button>
+				</form>
+			</div>
+				<ul class="megamenu skyblue">
+					<li class="active grid"><i class="fa fa-bars fa-2x"><a href="/home">Catalog</a></i>
+						<div class="megapanel">
+						<div class="row">
+							<div class="col1">
+								<div class="h_nav">
+									<ul>
+										<li th:each="cat : ${categorys}"><a th:href="@{/category(catg=${cat.category})}" th:text="${cat.category}"></a></li>
+									</ul>	
+								</div>							
+							</div>
+						  </div>
+						</div>
+					</li>
+					
+					<li class="active grid" th:switch="${session.role}">
+						<a th:case="'admin'" href="/add" >Add Product</a>
+						<i class="fa fa-shopping-bag fa-2x"><a th:case="'user'"  href="/vieworders">Your Orders</a></i>
+					</li>
+					<li class="active grid" th:switch="${session.role}">
+						<a th:case="'admin'" href="/productcategory" >Add Category</a>
+						<button style="font-size:24px" th:case="'user'">
+							<i class="fa fa-shopping-cart">
+								<a href="/viewcart" >View Cart</a>
+							</i>
+						</button>
+					</li>
+				</ul>
+					
+					
+			</div>
+		</div>
+		<div class="col-xs-4 header-bottom-right">
+			<div class="box_1-cart">
+				<div class="box_11">
+					<a href="/logout">Logout</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

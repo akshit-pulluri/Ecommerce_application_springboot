@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="/header"></th:block>
+<body>
+	<th:block th:include="/menu1"></th:block>
+	<div class="single_top">
+		<div class="container">
+			<div class="register">
+				<div class="col-md-6 login-right">
+					<h3>REGISTERED CUSTOMERS</h3>
+					<p>If you have an account with us, please log in.</p>
+					<form th:action="@{/loginaction}" method="get">
+						<div>
+							<span>Email Address<label>*</label></span> <input type="text" name="username" required="required">
+						</div>
+						<div>
+							<span>Password<label>*</label></span> <input type="password" name="password" required="required">
+						</div>
+						<a class="forgot" href="#">Forgot Your Password?</a> <input
+							type="submit" value="Login">
+					</form>
+				</div>
+				<div class="col-md-6 login-left">
+					<h3>NEW CUSTOMERS</h3>
+					<p>By creating an account with our store, you will be able to
+						move through the checkout process faster, store multiple shipping
+						addresses, view and track your orders in your account and more.</p>
+					<a class="acount-btn" href="/register">Create an Account</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="/footer"></th:block>
+</body>
+</html>
