@@ -64,4 +64,4 @@ An inventory mail service is added to the project so that when the customer purc
 ##### -Developed By:
   Akshit Pulluri,
   Sastry Devarakonda,
-  Chandishwar Anthati,
+  Chandishwar Anthati.
